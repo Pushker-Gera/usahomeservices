@@ -13,9 +13,17 @@ export const metadata = pageMetadata({
 export default function QuoteRequestPage() {
   return (
     <PageTransition>
-      <section className="section">
-        <div className="container">
-          <SectionHeading level="h1" eyebrow="Quote Request" title="Tell Us What Your Home Needs" text="Submit your service request and our team will follow up with clear next steps and transparent pricing." center />
+      <section className="section premium-bg">
+        <div className="premium-grid" />
+        <div className="container relative">
+          <SectionHeading level="h1" eyebrow="Quote Request" title="Tell Us What Your Home Needs" text="Submit your service request and our team will follow up with clear next steps and transparent pricing." center invert />
+          <div className="mx-auto grid max-w-4xl gap-4 sm:grid-cols-3">
+            {["Fast response", "Transparent estimates", "Google Sheets routing"].map((item) => (
+              <div key={item} className="glass-card rounded-[24px] p-4 text-center text-sm font-black uppercase tracking-widest text-white/78">
+                {item}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
       <ContactPanel source="quote-request" />

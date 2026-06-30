@@ -21,14 +21,15 @@ export default function FAQPage() {
   return (
     <PageTransition>
       <JsonLd data={faqSchema(faqs)} />
-      <section className="section bg-white">
-        <div className="container">
-          <SectionHeading level="h1" eyebrow="FAQ" title="Frequently Asked Questions" text="Quick answers for homeowners and job candidates." center />
+      <section className="section premium-bg">
+        <div className="premium-grid" />
+        <div className="container relative">
+          <SectionHeading level="h1" eyebrow="FAQ" title="Frequently Asked Questions" text="Quick answers for homeowners and job candidates." center invert />
           <div className="mx-auto grid max-w-3xl gap-4">
             {faqs.map(([q, a]) => (
-              <article key={q} className="rounded-lg border border-black/8 p-5">
+              <article key={q} className="glass-card rounded-[26px] p-5 text-white">
                 <h3 className="text-xl font-black">{q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{a}</p>
+                <p className="mt-3 leading-7 text-white/70">{a}</p>
               </article>
             ))}
           </div>

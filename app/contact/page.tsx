@@ -20,7 +20,7 @@ export default function ContactPage() {
         <div className="premium-grid" />
         <div className="container relative">
           <SectionHeading level="h1" title="Let's Start a Conversation." text="Whether it is an urgent repair or a planned renovation, our experts are here to provide the luxury service you expect." center invert />
-          <div className="grid gap-4 md:grid-cols-4">
+          <div className={`grid gap-4 ${hasPhone ? "md:grid-cols-4" : "md:grid-cols-3"}`}>
             {hasPhone ? <Card icon={<Phone />} label="Phone" value={phone} /> : null}
             <Card icon={<Mail />} label="Email" value={email} />
             <Card icon={<Clock />} label="Hours" value="24/7/365 Emergency" />

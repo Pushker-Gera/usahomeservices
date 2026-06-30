@@ -57,7 +57,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
     <PageTransition>
       <JsonLd data={serviceDetailSchema} />
       <section className="relative overflow-hidden bg-ink py-20 text-white">
-        <Image src={service.image} alt={service.title} fill className="object-cover opacity-28" />
+        <Image src={service.image} alt={`${service.title} by usahomeservices`} fill priority sizes="100vw" className="object-cover opacity-28" />
         <div className="container relative">
           <Link href="/services" className="mb-8 inline-flex items-center gap-2 text-sm font-black text-brass"><ArrowLeft size={17} /> Back to All Services</Link>
           <p className="text-xs font-black uppercase tracking-[0.24em] text-brass">{service.eyebrow}</p>

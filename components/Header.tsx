@@ -22,11 +22,11 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-[#07111f] py-3 text-white shadow-[0_20px_60px_rgba(0,0,0,0.28)]">
       <div className="container">
-        <div className="flex min-h-[68px] items-center justify-between rounded-[28px] border border-white/12 bg-[rgba(11,23,40,0.92)] px-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_18px_50px_rgba(0,0,0,0.22)] backdrop-blur-2xl md:px-5">
-        <Link href="/" className="flex min-w-0 items-center gap-3">
-          <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-orange-500 via-amber-400 to-yellow-300 text-xl font-black text-ink shadow-[0_0_38px_rgba(251,146,60,0.32)]">U</span>
-          <span className="flex flex-col leading-none">
-            <span className="text-xl font-black tracking-tight text-white">{brandName}</span>
+        <div className="flex min-h-[68px] items-center justify-between gap-3 rounded-[28px] border border-white/12 bg-[rgba(11,23,40,0.92)] px-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_18px_50px_rgba(0,0,0,0.22)] backdrop-blur-2xl sm:px-4 md:px-5">
+        <Link href="/" aria-label="usahomeservices home" className="flex min-w-0 items-center gap-3">
+          <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-orange-500 via-amber-400 to-yellow-300 text-xl font-black text-ink shadow-[0_0_38px_rgba(251,146,60,0.32)] sm:h-12 sm:w-12">U</span>
+          <span className="flex min-w-0 flex-col leading-none">
+            <span className="truncate text-lg font-black tracking-tight text-white sm:text-xl">{brandName}</span>
             <span className="mt-1 hidden text-[10px] font-black uppercase tracking-[0.22em] text-orange-200/80 sm:block">Premium Services</span>
           </span>
         </Link>
@@ -46,7 +46,7 @@ export function Header() {
           ))}
         </nav>
         <div className="hidden items-center gap-3 lg:flex">
-          <Link href="/quote-request" className="rounded-2xl border border-white/12 bg-white/[0.06] px-4 py-3 text-sm font-extrabold text-white/86 transition hover:bg-white/12 hover:text-white">
+          <Link href="/quote-request" aria-label="Get a home services quote" className="rounded-2xl border border-white/12 bg-white/[0.06] px-4 py-3 text-sm font-extrabold text-white/86 transition hover:bg-white/12 hover:text-white">
             Get Quote
           </Link>
           {hasPhone ? (
@@ -56,7 +56,7 @@ export function Header() {
             </Link>
           ) : null}
         </div>
-        <button aria-label="Toggle menu" className="grid h-12 w-12 place-items-center rounded-2xl border border-white/15 bg-white/[0.07] text-white lg:hidden" onClick={() => setOpen((value) => !value)}>
+        <button aria-label="Toggle menu" aria-expanded={open} className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl border border-white/15 bg-white/[0.07] text-white lg:hidden" onClick={() => setOpen((value) => !value)}>
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
         </div>

@@ -34,29 +34,29 @@ export default function CareersPage() {
   return (
     <PageTransition>
       <JsonLd data={[jobPostingSchema, faqSchema(careerFaq)]} />
-      <section className="premium-bg min-h-[620px]">
+      <section className="premium-bg min-h-[560px] md:min-h-[620px]">
         <div className="premium-grid" />
         <div className="hero-particles" aria-hidden><span /><span /><span /><span /><span /></div>
-        <div className="container relative z-10 flex min-h-[620px] flex-col items-center justify-center py-20 text-center text-white">
-          <Reveal>
+        <div className="container relative z-10 flex min-h-[560px] flex-col items-center justify-start py-10 text-center text-white sm:justify-center md:min-h-[620px] md:py-20">
+          <Reveal eager>
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-orange-300/22 bg-white/10 px-4 py-2 text-sm font-black text-orange-100 backdrop-blur">
               <Sparkles size={17} className="text-orange-300" />
               Careers / Jobs
             </div>
           </Reveal>
-          <Reveal delay={0.05}>
-            <h1 className="mx-auto max-w-5xl text-5xl font-black leading-tight tracking-tight md:text-7xl">
+          <Reveal eager delay={0.05}>
+            <h1 className="text-balance mx-auto max-w-5xl text-4xl font-black leading-tight tracking-tight sm:text-5xl md:text-7xl">
               Build a career in <span className="accent-text">home-services growth</span>.
             </h1>
           </Reveal>
-          <Reveal delay={0.1}>
+          <Reveal eager delay={0.1}>
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-white/72">
               Apply for calling, appointment setting, cold calling, and sales roles that support premium homeowner service requests.
             </p>
           </Reveal>
-          <Reveal delay={0.15}>
-            <div className="mt-9 flex flex-wrap justify-center gap-4">
-              <Button href="#apply">Apply Now</Button>
+          <Reveal eager delay={0.15}>
+            <div className="mt-9 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:gap-4">
+              <Button href="#apply" className="w-full sm:w-auto">Apply Now</Button>
               <AdminOnlyLink href="/admin" variant="dashboard" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-white/18 bg-white/10 px-5 py-3 text-sm font-extrabold text-white backdrop-blur transition duration-200 hover:-translate-y-1 hover:bg-white/16 active:translate-y-0" />
             </div>
           </Reveal>

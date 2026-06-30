@@ -53,36 +53,36 @@ export default function HomePage() {
   return (
     <PageTransition>
       <JsonLd data={[localBusinessSchema, serviceSchema, faqSchema(faqs)]} />
-      <section className="premium-bg relative min-h-[calc(100vh-var(--header-h))]">
+      <section className="premium-bg relative min-h-[calc(100svh-var(--header-h))]">
         <div className="premium-grid" />
         <div className="hero-particles" aria-hidden>
           <span /><span /><span /><span /><span />
         </div>
-        <div className="container relative z-10 flex min-h-[calc(100vh-var(--header-h))] flex-col items-center justify-center py-20 text-center text-white">
-          <Reveal>
+        <div className="container relative z-10 flex min-h-[calc(100svh-var(--header-h))] flex-col items-center justify-start py-10 text-center text-white sm:justify-center md:py-20">
+          <Reveal eager>
             <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-orange-300/22 bg-white/10 px-4 py-2 text-sm font-black text-orange-100 backdrop-blur">
               <BadgeCheck size={17} className="text-orange-300" />
               Trusted by Local Homeowners
             </div>
           </Reveal>
-          <Reveal delay={0.05}>
-            <h1 className="mx-auto max-w-5xl text-5xl font-black leading-[1.03] tracking-tight md:text-7xl lg:text-8xl">
+          <Reveal eager delay={0.05}>
+            <h1 className="text-balance mx-auto max-w-5xl text-4xl font-black leading-[1.04] tracking-tight sm:text-5xl md:text-7xl lg:text-8xl">
               Expert Care for Your <span className="accent-text">Dream Home</span>.
             </h1>
           </Reveal>
-          <Reveal delay={0.1}>
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-white/72 md:text-xl">
+          <Reveal eager delay={0.1}>
+            <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-white/72 md:text-xl">
               Premium plumbing, roofing, HVAC, locksmith, electrical, emergency, and home maintenance services with a lead flow built for fast response.
             </p>
           </Reveal>
-          <Reveal delay={0.15}>
-            <div className="mt-9 flex flex-wrap justify-center gap-4">
-              <Button href="/quote-request">Get Free Estimate <ArrowRight size={18} /></Button>
+          <Reveal eager delay={0.15}>
+            <div className="mt-9 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:gap-4">
+              <Button href="/quote-request" className="w-full sm:w-auto">Get Free Estimate <ArrowRight size={18} /></Button>
               {hasPhone ? <Button href={phoneHref} variant="glass"><Phone size={18} /> Call {phone}</Button> : null}
             </div>
           </Reveal>
-          <Reveal delay={0.2}>
-            <div className="mt-9 flex flex-wrap justify-center gap-3">
+          <Reveal eager delay={0.2}>
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
               {quickFacts.slice(0, 4).map((fact) => {
                 const Icon = fact.icon;
                 return (
@@ -94,11 +94,11 @@ export default function HomePage() {
               })}
             </div>
           </Reveal>
-          <div className="mt-12 grid w-full max-w-4xl gap-4 md:grid-cols-3">
+          <div className="mt-10 grid w-full max-w-4xl gap-4 md:mt-12 md:grid-cols-3">
             {heroStats.map((stat, index) => (
-              <Reveal key={stat.label} delay={0.24 + index * 0.05}>
+              <Reveal key={stat.label} eager delay={0.24 + index * 0.05}>
                 <div className="glass-card rounded-[28px] p-5">
-                  <p className="text-4xl font-black text-orange-300"><AnimatedCounter value={stat.value} suffix={stat.suffix} /></p>
+                  <p className="text-4xl font-black text-orange-300">{stat.suffix === "/7" ? "24/7" : <AnimatedCounter value={stat.value} suffix={stat.suffix} />}</p>
                   <p className="mt-2 text-sm font-black uppercase tracking-widest text-white/62">{stat.label}</p>
                 </div>
               </Reveal>
