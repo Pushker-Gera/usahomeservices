@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { brandName, email, hasPhone, phone, phoneHref } from "@/lib/data";
+import { AdminOnlyLink } from "./AdminOnlyLink";
 
 export function Footer() {
   return (
@@ -49,7 +50,7 @@ export function Footer() {
             <Link href="/terms-of-service">Terms & Conditions</Link>
             <Link href="/privacy-policy">Privacy Policy</Link>
             <Link href="/faq">FAQ</Link>
-            <Link href="/admin">Admin</Link>
+            <AdminOnlyLink href="/admin">Admin</AdminOnlyLink>
           </div>
         </div>
       </div>

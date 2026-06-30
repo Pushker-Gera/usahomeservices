@@ -15,12 +15,13 @@ The site runs in demo mode when `NEXT_PUBLIC_GOOGLE_SCRIPT_URL` is missing. Form
 
 ```bash
 NEXT_PUBLIC_GOOGLE_SCRIPT_URL=
+NEXT_PUBLIC_ADMIN_EMAIL=
 NEXT_PUBLIC_LEADS_SHEET_URL=
 NEXT_PUBLIC_JOB_APPLICATIONS_SHEET_URL=
 NEXT_PUBLIC_CONTACT_MESSAGES_SHEET_URL=
 ```
 
-Only `NEXT_PUBLIC_GOOGLE_SCRIPT_URL` is required for submissions. The sheet URL variables are optional convenience links for the admin page buttons.
+Only `NEXT_PUBLIC_GOOGLE_SCRIPT_URL` is required for submissions. `NEXT_PUBLIC_ADMIN_EMAIL` controls which email can access the admin dashboard. The sheet URL variables are optional convenience links for the admin page buttons.
 
 ## Google Apps Script Code
 

@@ -5,6 +5,7 @@ import { Button } from "@/components/Button";
 import { JobApplicationForm } from "@/components/JobApplicationForm";
 import { JobCards } from "@/components/JobCards";
 import { SectionHeading } from "@/components/SectionHeading";
+import { AdminOnlyLink } from "@/components/AdminOnlyLink";
 
 const benefits = [
   { title: "Flexible weekly hours", text: "Roles support 20-65 hour weekly ranges depending on position and performance.", icon: Clock },
@@ -46,7 +47,9 @@ export default function CareersPage() {
           <Reveal delay={0.15}>
             <div className="mt-9 flex flex-wrap justify-center gap-4">
               <Button href="#apply">Apply Now</Button>
-              <Button href="/admin" variant="glass">View Admin Dashboard</Button>
+              <AdminOnlyLink href="/admin" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-white/18 bg-white/10 px-5 py-3 text-sm font-extrabold text-white backdrop-blur transition duration-200 hover:-translate-y-1 hover:bg-white/16 active:translate-y-0">
+                View Admin Dashboard
+              </AdminOnlyLink>
             </div>
           </Reveal>
         </div>
