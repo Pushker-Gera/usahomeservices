@@ -6,7 +6,7 @@ import { JobCards } from "@/components/JobCards";
 import { LeadForm } from "@/components/LeadForm";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceGrid } from "@/components/ServiceCard";
-import { areas, phone, phoneHref, quickFacts } from "@/lib/data";
+import { areas, brandName, hasPhone, phone, phoneHref, quickFacts } from "@/lib/data";
 
 const heroStats = [
   { value: 24, suffix: "/7", label: "Emergency Response" },
@@ -24,14 +24,14 @@ const steps = [
 const testimonials = [
   { name: "Megan R.", city: "Carmel", text: "The team arrived fast, explained the issue clearly, and left the work area spotless. It felt premium from the first call." },
   { name: "Daniel P.", city: "Indianapolis", text: "Our roof leak was handled the same day. The quote was straightforward and the communication was excellent." },
-  { name: "Alicia M.", city: "Fishers", text: "Professional, polished, and reliable. Zenza is now our go-to for anything home maintenance related." }
+  { name: "Alicia M.", city: "Fishers", text: `Professional, polished, and reliable. ${brandName} is now our go-to for anything home maintenance related.` }
 ];
 
 const faqs = [
   ["Do you offer emergency repairs?", "Yes. Emergency plumbing, roof leak, electrical hazard, storm, and locksmith requests can be handled 24/7."],
   ["Can I request a quote online?", "Yes. Use the quote form and the team will follow up with the next steps and service recommendations."],
   ["Are job applications stored?", "Yes. Applications are sent to Google Sheets through the Apps Script endpoint, with demo success when the URL is missing."],
-  ["Which areas do you serve?", "Zenza serves Indianapolis and surrounding communities within the metro service area."]
+  ["Which areas do you serve?", `${brandName} serves Indianapolis and surrounding communities within the metro service area.`]
 ];
 
 const reasons = [
@@ -69,7 +69,7 @@ export default function HomePage() {
           <Reveal delay={0.15}>
             <div className="mt-9 flex flex-wrap justify-center gap-4">
               <Button href="/quote-request">Get Free Estimate <ArrowRight size={18} /></Button>
-              <Button href={phoneHref} variant="glass"><Phone size={18} /> Call {phone}</Button>
+              {hasPhone ? <Button href={phoneHref} variant="glass"><Phone size={18} /> Call {phone}</Button> : null}
             </div>
           </Reveal>
           <Reveal delay={0.2}>
@@ -98,15 +98,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-gradient-to-r from-orange-500 to-amber-300 py-5 text-ink">
-        <div className="container flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-          <div>
-            <p className="text-xs font-black uppercase tracking-widest">Emergency? Call Now!</p>
-            <p className="font-semibold text-ink/72">Available 24/7 for burst pipes, roof leaks, lockouts, and urgent repairs.</p>
+      {hasPhone ? (
+        <section className="bg-gradient-to-r from-orange-500 to-amber-300 py-5 text-ink">
+          <div className="container flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+            <div>
+              <p className="text-xs font-black uppercase tracking-widest">Emergency? Call Now!</p>
+              <p className="font-semibold text-ink/72">Available 24/7 for burst pipes, roof leaks, lockouts, and urgent repairs.</p>
+            </div>
+            <a href={phoneHref} className="inline-flex items-center gap-2 text-xl font-black">{phone}</a>
           </div>
-          <a href={phoneHref} className="inline-flex items-center gap-2 text-xl font-black">{phone}</a>
-        </div>
-      </section>
+        </section>
+      ) : null}
 
       <section className="section">
         <div className="container grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
@@ -163,7 +165,7 @@ export default function HomePage() {
       <section className="section bg-[#eef3f8]">
         <div className="container grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <Reveal>
-            <SectionHeading eyebrow="Why Choose Us" title="Premium standards, practical communication, and work you can trust." text="Zenza blends emergency response with high-end service discipline: clean workspaces, transparent recommendations, and a satisfaction guarantee." />
+            <SectionHeading eyebrow="Why Choose Us" title="Premium standards, practical communication, and work you can trust." text={`${brandName} blends emergency response with high-end service discipline: clean workspaces, transparent recommendations, and a satisfaction guarantee.`} />
             <Button href="/about" variant="dark">Explore Our Story</Button>
           </Reveal>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -240,10 +242,10 @@ export default function HomePage() {
             <div className="relative">
               <p className="text-xs font-black uppercase tracking-[0.24em] text-orange-300">Ready When You Are</p>
               <h2 className="mx-auto mt-3 max-w-3xl text-4xl font-black tracking-tight md:text-6xl">Get premium home service without waiting around.</h2>
-              <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-white/70">Submit a quote request or call now for emergency help from a trusted local home-services team.</p>
+              <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-white/70">Submit a quote request for help from a trusted local home-services team.</p>
               <div className="mt-8 flex flex-wrap justify-center gap-4">
                 <Button href="/quote-request">Request a Quote</Button>
-                <Button href={phoneHref} variant="glass">Call {phone}</Button>
+                {hasPhone ? <Button href={phoneHref} variant="glass">Call {phone}</Button> : null}
               </div>
             </div>
           </div>

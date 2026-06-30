@@ -5,7 +5,6 @@ import { Button } from "@/components/Button";
 import { JobApplicationForm } from "@/components/JobApplicationForm";
 import { JobCards } from "@/components/JobCards";
 import { SectionHeading } from "@/components/SectionHeading";
-import { phoneHref } from "@/lib/data";
 
 const benefits = [
   { title: "Flexible weekly hours", text: "Roles support 20-65 hour weekly ranges depending on position and performance.", icon: Clock },
@@ -135,7 +134,7 @@ export default function CareersPage() {
               <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-white/70">Our team reviews role, experience, availability, resume, and message from one dashboard.</p>
               <div className="mt-8 flex flex-wrap justify-center gap-4">
                 <Button href="#apply">Start Application</Button>
-                <Button href={phoneHref} variant="glass">Call About Hiring</Button>
+                <Button href="/contact" variant="glass">Contact Hiring Team</Button>
               </div>
             </div>
           </div>

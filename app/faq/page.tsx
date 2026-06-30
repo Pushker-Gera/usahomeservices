@@ -2,7 +2,7 @@ import { PageTransition } from "@/components/Animated";
 import { SectionHeading } from "@/components/SectionHeading";
 
 const faqs = [
-  ["Do you provide emergency service?", "Yes. Zenza Home Services offers 24/7 emergency support for urgent plumbing, roofing, electrical, locksmith, and damage mitigation needs."],
+  ["Do you provide emergency service?", "Yes. usahomeservices offers emergency support for urgent plumbing, roofing, electrical, locksmith, and damage mitigation needs."],
   ["Which areas do you serve?", "We serve Indianapolis and surrounding communities within an approximate 50-mile radius."],
   ["How does the quote request process work?", "Submit the form with your service need. Our team reviews the details, contacts you, and provides a transparent estimate before work begins."],
   ["Can candidates apply online?", "Yes. The Careers page includes job cards and a full application form with resume upload support."]

@@ -2,7 +2,7 @@ import { PageTransition } from "@/components/Animated";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceGrid } from "@/components/ServiceCard";
-import { phone } from "@/lib/data";
+import { hasPhone, phone, phoneHref } from "@/lib/data";
 
 export default function ServicesPage() {
   return (
@@ -17,10 +17,10 @@ export default function ServicesPage() {
       <section className="bg-gradient-to-r from-orange-500 to-amber-300 py-14 text-ink">
         <div className="container flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
           <div>
-            <h2 className="text-3xl font-black">Need Immediate Assistance?</h2>
-            <p className="mt-2 font-semibold text-ink/72">Our emergency teams are active 24/7. Do not wait for the damage to spread.</p>
+            <h2 className="text-3xl font-black">{hasPhone ? "Need Immediate Assistance?" : "Need a Fast Quote?"}</h2>
+            <p className="mt-2 font-semibold text-ink/72">{hasPhone ? "Our emergency teams are active 24/7. Do not wait for the damage to spread." : "Submit your details and our team will follow up through the quote system."}</p>
           </div>
-          <Button href={`tel:${phone.replace(/[^0-9+]/g, "")}`} variant="dark">{phone}</Button>
+          <Button href={hasPhone ? phoneHref : "/quote-request"} variant="dark">{hasPhone ? phone : "Request Quote"}</Button>
         </div>
       </section>
     </PageTransition>

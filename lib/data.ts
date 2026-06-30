@@ -14,9 +14,11 @@ import {
   Zap
 } from "lucide-react";
 
-export const phone = "+1 (765) 703-5911";
-export const phoneHref = "tel:+17657035911";
-export const email = "info@zenzahomeservices.com";
+export const brandName = "usahomeservices";
+export const phone = "";
+export const phoneHref = "";
+export const hasPhone = Boolean(phone.trim());
+export const email = "cyberbrandzup@gmail.com";
 
 export const serviceOptions = [
   "Plumbing",
@@ -97,7 +99,7 @@ export const services = [
     icon: Zap,
     description: "Rapid response for water damage, storm issues, and urgent repairs.",
     overview:
-      "When disaster strikes, Zenza is on the way. Our rapid response teams are equipped to handle urgent home emergencies, mitigating damage and starting the restoration process immediately.",
+      "When disaster strikes, usahomeservices is on the way. Our rapid response teams are equipped to handle urgent home emergencies, mitigating damage and starting the restoration process immediately.",
     benefits: ["Burst Pipe Cleanup", "Roof Leak Tarping", "Electrical Hazards", "Sewage Backup", "Storm Board-Up", "Structural Shoring"],
     standards: ["60-Min Target Arrival", "Equipped for Anything", "Damage Mitigation First", "Direct Insurance Billing"],
     image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1400&q=80"

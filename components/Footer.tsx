@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { email, phone, phoneHref } from "@/lib/data";
+import { brandName, email, hasPhone, phone, phoneHref } from "@/lib/data";
 
 export function Footer() {
   return (
@@ -8,8 +8,8 @@ export function Footer() {
       <div className="container grid gap-10 py-14 md:grid-cols-4">
         <div className="relative">
           <Link href="/" className="mb-4 flex items-center gap-2 text-xl font-black">
-            <span className="grid h-10 w-10 place-items-center rounded-2xl bg-gradient-to-br from-orange-500 to-amber-300 text-ink">Z</span>
-            ZenzaHome
+            <span className="grid h-10 w-10 place-items-center rounded-2xl bg-gradient-to-br from-orange-500 to-amber-300 text-ink">U</span>
+            {brandName}
           </Link>
           <p className="text-sm leading-6 text-white/70">Premium home maintenance and emergency services you can trust. Serving homeowners with excellence since our inception.</p>
         </div>
@@ -36,7 +36,7 @@ export function Footer() {
         <div className="relative">
           <h3 className="mb-4 text-sm font-black uppercase tracking-widest text-orange-300">Contact Us</h3>
           <div className="grid gap-3 text-sm text-white/75">
-            <Link href={phoneHref}>{phone}</Link>
+            {hasPhone ? <Link href={phoneHref}>{phone}</Link> : null}
             <Link href={`mailto:${email}`}>{email}</Link>
             <span>Serving Indianapolis & Surrounding Areas</span>
           </div>
@@ -44,7 +44,7 @@ export function Footer() {
       </div>
       <div className="relative border-t border-white/10">
         <div className="container flex flex-col gap-4 py-6 text-sm text-white/60 md:flex-row md:items-center md:justify-between">
-          <span>© 2026 Zenza Home Services. All rights reserved.</span>
+          <span>© 2026 {brandName}. All rights reserved.</span>
           <div className="flex flex-wrap gap-5">
             <Link href="/terms-of-service">Terms & Conditions</Link>
             <Link href="/privacy-policy">Privacy Policy</Link>

@@ -1,7 +1,7 @@
 import { PageTransition } from "@/components/Animated";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
-import { phoneHref, values } from "@/lib/data";
+import { brandName, hasPhone, phone, phoneHref, values } from "@/lib/data";
 
 export default function AboutPage() {
   return (
@@ -9,7 +9,7 @@ export default function AboutPage() {
       <section className="section premium-bg">
         <div className="premium-grid" />
         <div className="container relative text-white">
-          <SectionHeading eyebrow="Our Story" title="Crafting Comfort Through Excellence." text="At Zenza Home Services, we do not just fix pipes or repair roofs. We protect the most important place in the world: your home. Founded on the principles of luxury quality and absolute trust, we have become the preferred choice for homeowners who demand the best." invert />
+          <SectionHeading eyebrow="Our Story" title="Crafting Comfort Through Excellence." text={`At ${brandName}, we do not just fix pipes or repair roofs. We protect the most important place in the world: your home. Founded on the principles of luxury quality and absolute trust, we have become the preferred choice for homeowners who demand the best.`} invert />
           <div className="grid gap-4 md:grid-cols-2">
             <div className="glass-card rounded-[28px] p-8"><p className="text-6xl font-black text-orange-300">100%</p><p className="mt-2 font-black uppercase tracking-widest">Satisfaction Rate</p></div>
             <div className="glass-card rounded-[28px] p-8"><p className="text-6xl font-black accent-text">24/7</p><p className="mt-2 font-black uppercase tracking-widest">Available Support</p></div>
@@ -36,10 +36,10 @@ export default function AboutPage() {
       <section className="premium-bg py-16 text-white">
         <div className="premium-grid" />
         <div className="container text-center">
-          <h2 className="text-4xl font-black">Ready to Experience the Zenza Difference?</h2>
+          <h2 className="text-4xl font-black">Ready to Experience the usahomeservices Difference?</h2>
           <p className="mx-auto mt-4 max-w-2xl text-white/70">Our experts are standing by to handle your home maintenance with the care it deserves.</p>
           <div className="mt-7 flex justify-center gap-3">
-            <Button href={phoneHref}>Call (765) 703-5911</Button>
+            {hasPhone ? <Button href={phoneHref}>Call {phone}</Button> : null}
             <Button href="/quote-request" variant="secondary">Book Online</Button>
           </div>
         </div>

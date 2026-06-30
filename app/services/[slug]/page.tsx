@@ -5,7 +5,7 @@ import { ArrowLeft, CheckCircle2 } from "lucide-react";
 import { ContactPanel } from "@/components/ContactPanel";
 import { PageTransition } from "@/components/Animated";
 import { Button } from "@/components/Button";
-import { phone, phoneHref, services } from "@/lib/data";
+import { hasPhone, phone, phoneHref, services } from "@/lib/data";
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
@@ -44,9 +44,9 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
           </article>
           <aside className="h-fit rounded-lg bg-ink p-6 text-white shadow-lift">
             <p className="text-xs font-black uppercase tracking-[0.24em] text-brass">Need Help Now?</p>
-            <p className="mt-4 text-2xl font-black">Click below to speak directly with our expert team.</p>
-            <p className="mt-3 text-white/70">Available 24/7 for you.</p>
-            <Button href={phoneHref} className="mt-6 w-full">{phone}</Button>
+            <p className="mt-4 text-2xl font-black">{hasPhone ? "Click below to speak directly with our expert team." : "Send your details and our team will follow up quickly."}</p>
+            <p className="mt-3 text-white/70">{hasPhone ? "Available 24/7 for you." : "Quote requests are routed through Google Sheets."}</p>
+            <Button href={hasPhone ? phoneHref : "/quote-request"} className="mt-6 w-full">{hasPhone ? phone : "Request Quote"}</Button>
             <p className="mt-6 rounded-lg bg-white/10 p-4 text-center text-sm font-black uppercase tracking-widest">Rapid Response Time</p>
           </aside>
         </div>

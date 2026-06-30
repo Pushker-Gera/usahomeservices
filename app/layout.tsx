@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 
 export const metadata: Metadata = {
-  title: "Zenza Home Services",
+  title: "usahomeservices",
   description: "Premium home maintenance, emergency repairs, and home-services careers."
 };
 

@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { ContactPanel } from "@/components/ContactPanel";
 import { PageTransition } from "@/components/Animated";
 import { SectionHeading } from "@/components/SectionHeading";
-import { email, phone } from "@/lib/data";
+import { email, hasPhone, phone } from "@/lib/data";
 
 export default function ContactPage() {
   return (
@@ -13,7 +13,7 @@ export default function ContactPage() {
         <div className="container relative">
           <SectionHeading title="Let's Start a Conversation." text="Whether it is an urgent repair or a planned renovation, our experts are here to provide the luxury service you expect." center invert />
           <div className="grid gap-4 md:grid-cols-4">
-            <Card icon={<Phone />} label="Phone" value={phone} />
+            {hasPhone ? <Card icon={<Phone />} label="Phone" value={phone} /> : null}
             <Card icon={<Mail />} label="Email" value={email} />
             <Card icon={<Clock />} label="Hours" value="24/7/365 Emergency" />
             <Card icon={<MessageSquare />} label="Support" value="Live Chat Available" />
