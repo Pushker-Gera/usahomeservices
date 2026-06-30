@@ -1,11 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
 import { adminEmail, adminStorageKey } from "@/lib/admin";
 
-export function AdminOnlyLink({ href, children, className = "" }: { href: string; children: ReactNode; className?: string }) {
+export function AdminOnlyLink({ href, className = "", variant = "admin" }: { href: string; className?: string; variant?: "admin" | "dashboard" }) {
   const [allowed, setAllowed] = useState(false);
 
   useEffect(() => {
@@ -17,7 +16,7 @@ export function AdminOnlyLink({ href, children, className = "" }: { href: string
 
   return (
     <Link href={href} className={className}>
-      {children}
+      {variant === "dashboard" ? "View Admin Dashboard" : "Admin"}
     </Link>
   );
 }

@@ -1,4 +1,12 @@
 import { PageTransition } from "@/components/Animated";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: "Terms of Service | usahomeservices",
+  description: "Review the usahomeservices terms of service for website usage, service requests, quotations, intellectual property, and liability information.",
+  path: "/terms-of-service",
+  keywords: ["usahomeservices terms", "home services terms", "service request terms"]
+});
 
 const items = [
   ["Acceptance of Terms", "By accessing and using this website, you agree to comply with and be bound by these terms and conditions."],

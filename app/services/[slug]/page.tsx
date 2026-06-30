@@ -1,22 +1,61 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
 import { ContactPanel } from "@/components/ContactPanel";
+import { JsonLd } from "@/components/JsonLd";
 import { PageTransition } from "@/components/Animated";
 import { Button } from "@/components/Button";
 import { hasPhone, phone, phoneHref, services } from "@/lib/data";
+import { pageMetadata, siteUrl } from "@/lib/seo";
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
 }
 
+export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+  const service = services.find((item) => item.slug === params.slug);
+
+  if (!service) {
+    return pageMetadata({
+      title: "Service Not Found | usahomeservices",
+      description: "The requested usahomeservices service page could not be found.",
+      path: `/services/${params.slug}`,
+      noIndex: true
+    });
+  }
+
+  return pageMetadata({
+    title: `${service.title} | usahomeservices Indianapolis`,
+    description: `${service.description} Request premium ${service.title.toLowerCase()} from usahomeservices in the Indianapolis Metropolitan Area.`,
+    path: `/services/${service.slug}`,
+    keywords: [service.title, `${service.title} Indianapolis`, `${service.eyebrow.toLowerCase()} usahomeservices`]
+  });
+}
+
 export default function ServiceDetailPage({ params }: { params: { slug: string } }) {
   const service = services.find((item) => item.slug === params.slug);
   if (!service) notFound();
+  const serviceDetailSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.title,
+    description: service.description,
+    image: service.image,
+    url: `${siteUrl}/services/${service.slug}`,
+    provider: {
+      "@type": "Organization",
+      name: "usahomeservices",
+      url: siteUrl
+    },
+    areaServed: "Indianapolis Metropolitan Area",
+    serviceType: service.title
+  };
 
   return (
     <PageTransition>
+      <JsonLd data={serviceDetailSchema} />
       <section className="relative overflow-hidden bg-ink py-20 text-white">
         <Image src={service.image} alt={service.title} fill className="object-cover opacity-28" />
         <div className="container relative">

@@ -2,6 +2,14 @@ import { PageTransition } from "@/components/Animated";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { brandName, hasPhone, phone, phoneHref, values } from "@/lib/data";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: "About usahomeservices | Premium Indianapolis Home Services",
+  description: "Learn about usahomeservices, a premium Indianapolis home-services brand focused on trusted repairs, emergency response, transparent communication, and reliable workmanship.",
+  path: "/about",
+  keywords: ["about usahomeservices", "Indianapolis home service company", "trusted home services"]
+});
 
 export default function AboutPage() {
   return (
@@ -9,7 +17,7 @@ export default function AboutPage() {
       <section className="section premium-bg">
         <div className="premium-grid" />
         <div className="container relative text-white">
-          <SectionHeading eyebrow="Our Story" title="Crafting Comfort Through Excellence." text={`At ${brandName}, we do not just fix pipes or repair roofs. We protect the most important place in the world: your home. Founded on the principles of luxury quality and absolute trust, we have become the preferred choice for homeowners who demand the best.`} invert />
+          <SectionHeading level="h1" eyebrow="Our Story" title="Crafting Comfort Through Excellence." text={`At ${brandName}, we do not just fix pipes or repair roofs. We protect the most important place in the world: your home. Founded on the principles of luxury quality and absolute trust, we have become the preferred choice for homeowners who demand the best.`} invert />
           <div className="grid gap-4 md:grid-cols-2">
             <div className="glass-card rounded-[28px] p-8"><p className="text-6xl font-black text-orange-300">100%</p><p className="mt-2 font-black uppercase tracking-widest">Satisfaction Rate</p></div>
             <div className="glass-card rounded-[28px] p-8"><p className="text-6xl font-black accent-text">24/7</p><p className="mt-2 font-black uppercase tracking-widest">Available Support</p></div>

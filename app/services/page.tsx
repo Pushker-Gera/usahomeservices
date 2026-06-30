@@ -1,16 +1,26 @@
 import { PageTransition } from "@/components/Animated";
 import { Button } from "@/components/Button";
+import { JsonLd } from "@/components/JsonLd";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceGrid } from "@/components/ServiceCard";
 import { hasPhone, phone, phoneHref } from "@/lib/data";
+import { pageMetadata, serviceSchema } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: "Services | usahomeservices Indianapolis Home Repair",
+  description: "Explore usahomeservices premium plumbing, roofing, HVAC, electrical, locksmith, emergency repair, water heater, appliance, and home maintenance services in Indianapolis.",
+  path: "/services",
+  keywords: ["usahomeservices services", "Indianapolis home repair services", "emergency home services"]
+});
 
 export default function ServicesPage() {
   return (
     <PageTransition>
+      <JsonLd data={serviceSchema} />
       <section className="section premium-bg">
         <div className="premium-grid" />
         <div className="container relative">
-          <SectionHeading title="Premium Solutions for Every Corner of Your Home" text="Discover our range of expert services designed to provide you with peace of mind and luxury performance." center invert />
+          <SectionHeading level="h1" title="Premium Solutions for Every Corner of Your Home" text="Discover our range of expert services designed to provide you with peace of mind and luxury performance." center invert />
           <ServiceGrid detailed />
         </div>
       </section>

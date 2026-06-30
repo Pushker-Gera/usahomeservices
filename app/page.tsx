@@ -1,12 +1,20 @@
 import { ArrowRight, BadgeCheck, CalendarCheck, CheckCircle2, ClipboardCheck, Headphones, Phone, ShieldCheck, Sparkles, Star, Wrench } from "lucide-react";
 import { AnimatedCounter, PageTransition, Reveal } from "@/components/Animated";
 import { Button } from "@/components/Button";
-import { ContactPanel } from "@/components/ContactPanel";
 import { JobCards } from "@/components/JobCards";
+import { JsonLd } from "@/components/JsonLd";
 import { LeadForm } from "@/components/LeadForm";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceGrid } from "@/components/ServiceCard";
 import { areas, brandName, hasPhone, phone, phoneHref, quickFacts } from "@/lib/data";
+import { faqSchema, homepageDescription, localBusinessSchema, pageMetadata, serviceSchema } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: "usahomeservices | Premium Home Services in Indianapolis",
+  description: homepageDescription,
+  path: "/",
+  keywords: ["usahomeservices Indianapolis", "premium home services", "home repair Indianapolis"]
+});
 
 const heroStats = [
   { value: 24, suffix: "/7", label: "Emergency Response" },
@@ -27,7 +35,7 @@ const testimonials = [
   { name: "Alicia M.", city: "Fishers", text: `Professional, polished, and reliable. ${brandName} is now our go-to for anything home maintenance related.` }
 ];
 
-const faqs = [
+const faqs: Array<[string, string]> = [
   ["Do you offer emergency repairs?", "Yes. Emergency plumbing, roof leak, electrical hazard, storm, and locksmith requests can be handled 24/7."],
   ["Can I request a quote online?", "Yes. Use the quote form and the team will follow up with the next steps and service recommendations."],
   ["Are job applications stored?", "Yes. Applications are sent to Google Sheets through the Apps Script endpoint, with demo success when the URL is missing."],
@@ -44,6 +52,7 @@ const reasons = [
 export default function HomePage() {
   return (
     <PageTransition>
+      <JsonLd data={[localBusinessSchema, serviceSchema, faqSchema(faqs)]} />
       <section className="premium-bg relative min-h-[calc(100vh-var(--header-h))]">
         <div className="premium-grid" />
         <div className="hero-particles" aria-hidden>

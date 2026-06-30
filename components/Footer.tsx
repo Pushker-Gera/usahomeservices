@@ -50,7 +50,7 @@ export function Footer() {
             <Link href="/terms-of-service">Terms & Conditions</Link>
             <Link href="/privacy-policy">Privacy Policy</Link>
             <Link href="/faq">FAQ</Link>
-            <AdminOnlyLink href="/admin">Admin</AdminOnlyLink>
+            <AdminOnlyLink href="/admin" />
           </div>
         </div>
       </div>

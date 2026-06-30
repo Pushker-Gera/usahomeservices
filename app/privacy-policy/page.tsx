@@ -1,4 +1,12 @@
 import { PageTransition } from "@/components/Animated";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: "Privacy Policy | usahomeservices",
+  description: "Read the usahomeservices privacy policy covering website form data, service leads, contact messages, job applications, and information protection practices.",
+  path: "/privacy-policy",
+  keywords: ["usahomeservices privacy policy", "home services privacy", "job application privacy"]
+});
 
 export default function PrivacyPolicyPage() {
   return <Legal title="Privacy Policy" updated="May 18, 2026" paragraphs={[

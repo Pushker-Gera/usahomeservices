@@ -6,6 +6,15 @@ import { JobApplicationForm } from "@/components/JobApplicationForm";
 import { JobCards } from "@/components/JobCards";
 import { SectionHeading } from "@/components/SectionHeading";
 import { AdminOnlyLink } from "@/components/AdminOnlyLink";
+import { JsonLd } from "@/components/JsonLd";
+import { faqSchema, jobPostingSchema, pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: "Careers at usahomeservices | Home Services Jobs",
+  description: "Apply for usahomeservices calling, appointment setting, cold calling, and sales jobs supporting premium home-services growth workflows.",
+  path: "/careers",
+  keywords: ["usahomeservices jobs", "home services careers", "appointment setter jobs", "calling agent jobs"]
+});
 
 const benefits = [
   { title: "Flexible weekly hours", text: "Roles support 20-65 hour weekly ranges depending on position and performance.", icon: Clock },
@@ -14,7 +23,7 @@ const benefits = [
   { title: "Remote-ready workflow", text: "Application and candidate data are captured digitally for easy review.", icon: Laptop }
 ];
 
-const careerFaq = [
+const careerFaq: Array<[string, string]> = [
   ["Can I apply for more than one job?", "Yes. Submit your preferred role first, then mention additional roles in your message."],
   ["Do I need home-services experience?", "Experience helps, but strong communication, reliability, and sales discipline are also valuable."],
   ["How are applications stored?", "Applications are sent to the Job Applications tab in Google Sheets through the Apps Script Web App."],
@@ -24,6 +33,7 @@ const careerFaq = [
 export default function CareersPage() {
   return (
     <PageTransition>
+      <JsonLd data={[jobPostingSchema, faqSchema(careerFaq)]} />
       <section className="premium-bg min-h-[620px]">
         <div className="premium-grid" />
         <div className="hero-particles" aria-hidden><span /><span /><span /><span /><span /></div>
@@ -47,9 +57,7 @@ export default function CareersPage() {
           <Reveal delay={0.15}>
             <div className="mt-9 flex flex-wrap justify-center gap-4">
               <Button href="#apply">Apply Now</Button>
-              <AdminOnlyLink href="/admin" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-white/18 bg-white/10 px-5 py-3 text-sm font-extrabold text-white backdrop-blur transition duration-200 hover:-translate-y-1 hover:bg-white/16 active:translate-y-0">
-                View Admin Dashboard
-              </AdminOnlyLink>
+              <AdminOnlyLink href="/admin" variant="dashboard" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-white/18 bg-white/10 px-5 py-3 text-sm font-extrabold text-white backdrop-blur transition duration-200 hover:-translate-y-1 hover:bg-white/16 active:translate-y-0" />
             </div>
           </Reveal>
         </div>

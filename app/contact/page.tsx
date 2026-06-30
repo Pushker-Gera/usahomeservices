@@ -4,6 +4,14 @@ import { ContactPanel } from "@/components/ContactPanel";
 import { PageTransition } from "@/components/Animated";
 import { SectionHeading } from "@/components/SectionHeading";
 import { email, hasPhone, phone } from "@/lib/data";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: "Contact usahomeservices | Indianapolis Home Service Help",
+  description: "Contact usahomeservices for premium home repair quotes, emergency service requests, customer support, and home-services assistance in Indianapolis.",
+  path: "/contact",
+  keywords: ["contact usahomeservices", "Indianapolis home service contact", "home repair quote"]
+});
 
 export default function ContactPage() {
   return (
@@ -11,7 +19,7 @@ export default function ContactPage() {
       <section className="section premium-bg">
         <div className="premium-grid" />
         <div className="container relative">
-          <SectionHeading title="Let's Start a Conversation." text="Whether it is an urgent repair or a planned renovation, our experts are here to provide the luxury service you expect." center invert />
+          <SectionHeading level="h1" title="Let's Start a Conversation." text="Whether it is an urgent repair or a planned renovation, our experts are here to provide the luxury service you expect." center invert />
           <div className="grid gap-4 md:grid-cols-4">
             {hasPhone ? <Card icon={<Phone />} label="Phone" value={phone} /> : null}
             <Card icon={<Mail />} label="Email" value={email} />
