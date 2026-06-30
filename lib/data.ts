@@ -18,7 +18,7 @@ export const brandName = "usahomeservices";
 export const phone = "";
 export const phoneHref = "";
 export const hasPhone = Boolean(phone.trim());
-export const email = "cyberbrandzup@gmail.com";
+export const email = "@usahomeservices.in";
 
 export const serviceOptions = [
   "Plumbing",
